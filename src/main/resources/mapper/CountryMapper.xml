@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.mapper.CountryMapper">
+
+    <resultMap id="CountryMap" type="com.example.vo.CountryVo">
+        <id column="id" property="id"/>
+        <result property="countryName" column="countryname"/>
+        <result property="countryCode" column="countrycode"/>
+        <result property="cityName" column="name"/>
+        <result property="cityCode" column="state"/>
+    </resultMap>
+
+    <select id="selectCountry" resultMap="CountryMap">
+        select c.id,c.countryname,c.countrycode,i.name,i.state from country c,city i where c.id=i.id
+    </select>
+
+</mapper>

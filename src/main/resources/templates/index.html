@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head lang="en">
+        <meta charset="UTF-8"/>
+        <title></title>
+    </head>
+    <body>
+        <h1>Messages : View all</h1>
+        <div class="container">
+            <div class="pull-right">
+                <a href="form.html" th:href="@{/(form)}">Create Message</a>
+            </div>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>CountryName</td>
+                        <td>CountryCode</td>
+                        <td>CityName</td>
+                        <td>CityCode</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="message:${list}">
+                        <td th:text="${message.id}">1</td>
+                        <td th:text="${message.countryName}">
+                            AA
+                        </td>
+                        <td th:text="${message.countryCode}">
+                            BB
+                        </td>
+                        <td th:text="${message.cityName}">
+                            CC
+                        </td>
+                        <td th:text="${message.cityCode}">
+                            OO
+                        </td>
+                        <td>
+                            <a href="view.html"
+                               th:href="@{'/' + ${message.id}}"
+                               th:text="${message.cityName+'-'+message.cityCode}">
+                                The summary
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
